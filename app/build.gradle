@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId 'com.nachiket.ecsblocker'
+        targetSdkVersion 29
+        versionCode 18
+        versionName "1.2.12"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion 14
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/aidl']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:25.4.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v4:25.4.0'
+
+}
